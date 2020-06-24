@@ -1,0 +1,53 @@
+package com.kh.project.movie.DAO;
+// 회원가입 창 DAO
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import com.kh.project.movie.Membership;
+
+public class MembershipDAO {
+	
+	public void  MemberFileSave() {
+		Membership[] mArr = new Membership[(Integer) null];
+		//파일 저장된 데이터를 읽어와서 객체(객체배열)에 저장
+		try (FileOutputStream fos = new FileOutputStream("회원정보.txt");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);){
+					
+				for(int i = 0; i < mArr.length; i++) {
+					oos.writeObject(mArr[i]);
+				}
+			
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+		}
+	}
+				//회원가입 정보 저장
+	
+	public void fileOpen() {//  회원가입된 정보 로그인창에서 읽기
+		Membership[] mArr = new Membership[(Integer) null];
+		
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("회원정보.txt"));) {
+			
+			for(int i = 0; i < mArr.length; i++) {
+				mArr[i] = (Membership)ois.readObject();
+			}
+		
+			for(Membership m: mArr) {
+				System.out.println(m);
+			}
+			
+		} catch (FileNotFoundException  | ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		
+		}
+	}
+}
