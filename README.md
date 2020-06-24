@@ -2,7 +2,9 @@
 
 package com.kh.project.movie.LogIn.view;
 
-public class LonIn {// 처음 로그인 창vo
+import java.io.Serializable;
+
+public class LonIn implements Serializable{// 처음 로그인 창 VO
 	private String idInput; //회원 가입된  아이디 받아오기
 	private String pswInput; //회원 가입된  비밀번호 받아오기
 	
