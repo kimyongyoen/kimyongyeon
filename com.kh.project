@@ -1,0 +1,57 @@
+package com.kh.project.movie;
+
+import java.io.Serializable;
+
+public class Membership  implements Serializable {
+	private String name;//이름
+	private String id;//아이디
+	private int age;//생년월일 6자리로 만들기!
+	private String phone;//핸드폰 번호
+	private String address;//주소
+	
+	public Membership() {}
+	public Membership(String name,String id,int age,String phone,String address) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.age = age;
+		this.phone = phone;
+		this.address = address;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+//	@Override
+//	public String toString() {
+//		return "name : " + name + "id" + id + "age" + age + "phone" + phone + "address" + address;
+//				
+//	}
+
+}
