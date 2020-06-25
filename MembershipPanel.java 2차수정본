@@ -1,0 +1,84 @@
+package com.kh.project.movie.login;
+
+
+
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.TextField;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class MembershipPanel extends JPanel{
+	
+	public MembershipPanel() {
+	
+	setBounds(500, 200, 300, 400);
+	setBackground(Color.white);//panel 색 설정
+	setLayout(null);
+	
+	// 바벨 생성
+	Label labelName = new Label("이름");	
+    Label  labelId = new Label("아이디");
+    Label labelPsw = new Label("패스워드");
+    Label labelAge = new Label("생년월일 ");
+    Label labelAgeText = new Label("생년월일은 주민번호  앞자리 6자리!! ");
+    Label labelAddress = new Label("주소");
+    
+	//텍스트란 생성
+    TextField  textName = new TextField();//이름 입력란
+    TextField  textId = new TextField();//아이디 입력란
+    TextField  textPsw = new TextField();//패스워드 입력란
+    TextField  textAge = new TextField();//생년월일 입력
+    TextField textAddress = new TextField();// 주소 입력란
+    
+    
+ 	//패스워드 *표시
+    textPsw.setEchoChar('*');
+    
+	//라벨 패널에 넣기
+    add(labelName);
+    add(labelId);
+    add(labelPsw);
+    add(labelAge);
+    add(labelAgeText);
+    add(labelAddress);
+    
+	//텍스트 패널에 넣기
+    add(textName);
+    add(textId);
+    add(textPsw);
+    add(textAge);
+    add(textAddress);
+    
+    //라벨 위치 설정
+    labelName.setBounds(20, 50, 40, 40);
+    labelId.setBounds(20, 100, 40, 40);
+    labelPsw.setBounds(20,150,60,40);
+    labelAge.setBounds(20, 200, 100, 40);
+    labelAgeText.setBounds(20, 250, 250, 50);
+    labelAddress.setBounds(20, 300, 40, 40);
+    
+     //텍스트 위치 설정
+    textName.setBounds(150, 50, 200, 30);
+    textId.setBounds(150, 100, 200, 30);
+    textPsw.setBounds(150, 150, 200, 30);
+    textAge.setBounds(150, 200, 200, 30);
+    textAddress.setBounds(150, 300, 280, 30);
+	
+    // 이미지 생성
+ 	ImageIcon imageIcon = new ImageIcon("image/logo1.PNG");
+ 	Image image = imageIcon.getImage();
+ 	Image icon = image.getScaledInstance(900, 850, 150);
+ 			
+ 			
+ 	// 라벨에 이미지 넣기
+ 	JLabel imageLabel = new JLabel(new ImageIcon(icon));
+ 	imageLabel.setBounds(220, 10, 700, 300);
+ 	add(imageLabel);
+	
+}
+}
