@@ -1,0 +1,104 @@
+package com.kh.project.movie;
+
+import java.awt.Color;
+import java.awt.Label;
+import java.awt.Rectangle;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class MainFrame  extends JFrame{ 
+	public void MainLogInFram() {
+		JFrame frame = new JFrame("CGV");
+		JPanel panel = new JPanel();
+		  panel.setLayout(null);
+		  JLabel label = new JLabel(new ImageIcon("image/cjv.png")); // panel 있는 로고 
+			add(label);
+		  Label l1= new Label("CGV에 오신걸 환영합니다.");
+			add(l1);
+			Label l2= new Label("ID 입력 후 로그인 버튼을 클릭하세요.");
+			add(l2);
+			Label bl1= new Label("아이디:");//아이디 라벨
+			add(bl1);
+			Label bl2= new Label("비밀번호:");// 비밀번호 라벨
+			add(bl2);
+			TextField t1 = new TextField();// 아이디 입력칸
+			add(t1);
+			TextField t2 = new TextField();// 비밀번호 입력칸
+			add(t2);
+			t2.setEchoChar('*');// 비밀 번호 암호화
+			JButton b1 = new JButton("로그인");
+			add(b1);
+			JButton b2 = new JButton("회원가입");
+			add(b2);
+			try {// 프레임 로고 설정
+				frame.setIconImage(ImageIO.read(new File("image/CJ_CGV_Logo.jpg")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		label.setBounds(20, 50, 330, 300);// 메인 CGV로고
+		l1.setBounds(400, 100, 150, 40);//"CGV에 오신걸 환영합니다."
+		l2.setBounds(400,250, 280, 40);//"ID입력 후 로그인 버튼을 클릭하세요."
+		bl1.setBounds(40, 365, 40, 40);//"아이디:"
+		bl2.setBounds(40, 410, 60, 40);//"비밀번호:"
+		t1.setBounds(150, 365, 200, 30);// 아이디 입력칸
+		t2.setBounds(150, 410, 200, 30);// 비밀번호 입력칸
+		b1.setBounds(380, 365, 80, 30);//아이디 로그인 버튼
+		b2.setBounds(380, 410, 90, 30);// 회원 가입 버튼
+		add(panel);
+		setSize(800, 500);
+		setBackground(Color.BLACK);//panel 색 설정
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("로그인 화면 ");
+		setVisible(true);
+		
+		
+		b1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {//회원가입창으로 이동
+				
+				JFrame f2= new JFrame();
+			}
+		});;
+				b1.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e2) {//로그인 할때 
+									try{
+							String s;
+							String[] array;
+							BufferedReader bos = new BufferedReader(new FileReader("회원명단.txt"));
+							while((s=bos.readLine())!=null){
+								array=s.split("/");
+							if(t1.getText().equals(array[1])&&t2.getText().equals(array[2]))
+							{
+								JOptionPane.showMessageDialog(null, "로그인이 되었습니다!!");
+								JFrame f3 = new JFrame();
+							}
+							else 
+							{
+								JOptionPane.showMessageDialog(null, "로그인이 실패하였습니다.");
+							}
+							}
+							bos.close();
+							dispose();
+						}catch (IOException E10){
+							E10.printStackTrace();
+						}
+					}
+				});
+		
+				
+			}
+}
