@@ -1,0 +1,87 @@
+package com.kh.project.movie;
+
+import java.awt.Color;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class LogIn extends JFrame{
+	public void MainLogIn() {
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		add(panel);
+		//라벨 생성
+		JLabel label = new JLabel(new ImageIcon("image/cgv.png")); // panel 있는 로고 
+		Label l1= new Label("CGV에 오신걸 환영합니다.");
+		Label l2= new Label("ID 입력 후 로그인 버튼을 클릭하세요.");
+		Label bl1= new Label("아이디:");//아이디 라벨
+		Label bl2= new Label("비밀번호:");// 비밀번호 라벨
+			
+		//텍스트 칸 생성
+		TextField t1 = new TextField();// 아이디 입력칸
+		TextField t2 = new TextField();// 비밀번호 입력칸
+		
+		//버튼생성
+		JButton b1 = new JButton("로그인");
+		JButton b2 = new JButton("회원가입");
+		
+		
+		t2.setEchoChar('*');// 비밀 번호 암호화
+		
+		
+		//라벨 끼워 넣기
+		add(label);
+		add(l1);
+		add(l2);
+		add(bl1);
+		add(bl2);
+		
+		//텍스트칸 끼워 넣기
+		add(t1);
+		add(t2);
+		
+		//
+		add(b1);
+		add(b2);
+		
+		
+		//프레임 로고 
+		try {
+			setIconImage(ImageIO.read(new File("image/CJ_CGV_Logo.jpg")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 라벨  텍스트 버튼 위치 설정
+		label.setBounds(40, 50, 330, 300);// 메인 CGV로고
+		l1.setBounds(500, 100, 150, 70);//"CGV에 오신걸 환영합니다."
+		l2.setBounds(500,250, 200, 80);//"ID입력 후 로그인 버튼을 클릭하세요."
+		bl1.setBounds(40, 365, 40, 40);//"아이디:"
+		bl2.setBounds(40, 410, 60, 40);//"비밀번호:"
+		t1.setBounds(150, 365, 200, 30);// 아이디 입력칸
+		t2.setBounds(150, 410, 200, 30);// 비밀번호 입력칸
+		b1.setBounds(380, 365, 80, 30);//아이디 로그인 버튼
+		b2.setBounds(380, 410, 90, 30);// 회원 가입 버튼
+		
+		add(panel);
+		setSize(800, 500);
+		setBackground(Color.BLACK);//panel 색 설정
+		
+		setTitle(" CGV 로그인 화면 ");
+
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+
+	}
+}
