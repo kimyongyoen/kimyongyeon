@@ -1,0 +1,99 @@
+package com.kh.project.movie1;
+
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.TextField;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MembershipPanel extends JPanel {
+	public MembershipPanel() {
+		
+		
+		setBounds(500, 200, 300, 400);
+		setBackground(Color.white);//panel 색 설정
+		setLayout(null);
+		
+		
+		
+		
+		// 라벨 생성
+		Label nameLabel = new Label("이름 :");	
+	    Label  idLabel = new Label("아이디 :");
+	    Label pswLabel = new Label("패스워드 :");
+	    Label ageLabel = new Label("생년월일  :");
+	    Label ageTextLabel = new Label("생년월일은 주민번호  앞자리 6자리!! ");
+	    Label genderLabel = new Label("성별  :");
+	    Label phoneNumberLabel = new Label("핸드폰 번호 :");
+	   
+	    
+		//텍스트란 생성
+	    TextField  nameText = new TextField();//이름 입력란
+	    TextField  idText = new TextField();//아이디 입력란
+	    TextField  pswText = new TextField();//패스워드 입력란
+	    
+	    JTextField  ageText = new JTextField(6);//생년월일 입력
+	    TextField phoneNumberFristText = new TextField(4);// 핸드폰 번호 처음칸
+	    TextField phoneNumberSecoundText = new TextField(4);//핸드폰 번호 두번째칸
+	    TextField phoneNumberLastText = new TextField(4);// 핸드폰 번호 마지막칸
+	    
+	 	//패스워드 *표시
+	    pswText.setEchoChar('*');
+	    
+		//라벨 패널에 넣기
+	    add(nameLabel);
+	    add(idLabel);
+	    add(pswLabel);
+	    add(ageLabel);
+	    add(ageTextLabel);
+	    add(genderLabel);
+	    add(phoneNumberLabel);
+	  
+	    
+	    
+		//텍스트 패널에 넣기
+	    add(nameText);
+	    add(idText);
+	    add(pswText);
+	    add(ageText);
+	    add(phoneNumberFristText);
+	    add(phoneNumberSecoundText);
+	    add(phoneNumberLastText);
+	    
+	    //라벨 위치 설정
+	    nameLabel.setBounds(20, 50, 100, 40);
+	    idLabel.setBounds(20, 100, 100, 40);
+	    pswLabel.setBounds(20,150,100,40);
+	    ageLabel.setBounds(20, 200, 100, 40);
+	    ageTextLabel.setBounds(20, 230, 250, 50);
+	    genderLabel.setBounds(20, 280, 100, 50);
+	    phoneNumberLabel.setBounds(20, 360, 100, 40);
+	  
+	    
+	     //텍스트 위치 설정
+	    nameText.setBounds(120, 50, 200, 30);
+	    idText.setBounds(120, 100, 185, 30);
+	    pswText.setBounds(120, 150, 200, 30);
+	    ageText.setBounds(120, 200, 200, 30);
+	    phoneNumberFristText.setBounds(120, 360, 70, 30);
+	    phoneNumberSecoundText.setBounds(220, 360, 70, 30);
+	    phoneNumberLastText.setBounds(320, 360, 70, 30);
+		
+	    // 이미지 생성
+	 	ImageIcon imageIcon = new ImageIcon("image/logo1.PNG");
+	 	Image image = imageIcon.getImage();
+	 	Image icon = image.getScaledInstance(900, 850, 150);
+	 			
+	 			
+	 	// 라벨에 이미지 넣기
+	 	JLabel imageLabel = new JLabel(new ImageIcon(icon));
+	 	// 이미지라벨 크기&위치 지정
+	 	imageLabel.setBounds(230, 80, 700, 300);
+	 	// 패널에 이미지 라벨 끼우기
+	 	add(imageLabel);		
+	}
+}
